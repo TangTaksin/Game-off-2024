@@ -41,6 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: connects
+    uniqueID: 1318909847
+    locked: 0
+  - name: Map
+    uniqueID: 1974851181
+    locked: 0
+  - name: Items
+    uniqueID: 1054036367
+    locked: 0
   m_RenderingLayers:
   - Default
   - Light Layer 1
