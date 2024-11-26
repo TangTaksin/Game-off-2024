@@ -11,9 +11,8 @@ public class Scroller : MonoBehaviour
     private Vector2 _currentOffset; // Tracks the texture offset
     private bool _isScrolling = true; // Whether scrolling is enabled
 
-    /// <summary>
-    /// Properties to access and modify the scroll speeds dynamically.
-    /// </summary>
+    private Rect _uvRect; // Cache the uvRect to avoid redundant property calls
+
     public float XSpeed
     {
         get => _xSpeed;
@@ -29,9 +28,13 @@ public class Scroller : MonoBehaviour
     private void Awake()
     {
         ValidateRawImage();
+        if (_img != null)
+        {
+            _uvRect = _img.uvRect; // Initialize the cached uvRect
+        }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (_isScrolling)
         {
@@ -39,59 +42,32 @@ public class Scroller : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Ensures the RawImage component is assigned and valid.
-    /// </summary>
     private void ValidateRawImage()
     {
         if (_img == null)
         {
             Debug.LogError("Scroller: RawImage is not assigned. Please assign it in the Inspector.");
-            enabled = false; // Disable the script to prevent further errors
+            enabled = false;
         }
     }
 
-    /// <summary>
-    /// Updates the scrolling texture offset based on the speed values and time.
-    /// </summary>
     private void UpdateScroll()
     {
         // Increment the offset
-        _currentOffset += new Vector2(_xSpeed, _ySpeed) * Time.deltaTime;
+        _currentOffset.x += _xSpeed * Time.deltaTime;
+        _currentOffset.y += _ySpeed * Time.deltaTime;
 
-        // Apply the offset to the RawImage's UV Rect
-        _img.uvRect = new Rect(_currentOffset, _img.uvRect.size);
+        // Only update uvRect if necessary
+        _uvRect.position = _currentOffset;
+        _img.uvRect = _uvRect;
     }
 
-    /// <summary>
-    /// Toggles the scrolling state (on/off).
-    /// </summary>
-    public void ToggleScrolling()
-    {
-        _isScrolling = !_isScrolling;
-    }
+    public void ToggleScrolling() => _isScrolling = !_isScrolling;
 
-    /// <summary>
-    /// Stops the scrolling of the texture.
-    /// </summary>
-    public void StopScrolling()
-    {
-        _isScrolling = false;
-    }
+    public void StopScrolling() => _isScrolling = false;
 
-    /// <summary>
-    /// Resumes the scrolling of the texture.
-    /// </summary>
-    public void ResumeScrolling()
-    {
-        _isScrolling = true;
-    }
+    public void ResumeScrolling() => _isScrolling = true;
 
-    /// <summary>
-    /// Dynamically sets the scroll speed.
-    /// </summary>
-    /// <param name="xSpeed">Horizontal scroll speed (pixels per second).</param>
-    /// <param name="ySpeed">Vertical scroll speed (pixels per second).</param>
     public void SetScrollSpeed(float xSpeed, float ySpeed)
     {
         _xSpeed = xSpeed;
