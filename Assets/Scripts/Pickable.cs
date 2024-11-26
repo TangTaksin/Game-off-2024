@@ -21,7 +21,7 @@ public class Pickable : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        print("Entered : " + gameObject.name);
+        //print("Entered : " + gameObject.name);
 
     }
 
