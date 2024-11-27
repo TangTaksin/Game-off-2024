@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("SFX Clips")]
     public AudioClip pickUpSfx;
-    public AudioClip dropDownSfx;
+    public AudioClip flipSfx;
     public AudioClip combineItemsSfx;
     public AudioClip jigsawSnapSfx;
     public AudioClip jigsawRemoveSfx;

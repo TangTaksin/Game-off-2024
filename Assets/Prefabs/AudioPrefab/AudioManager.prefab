@@ -183,7 +183,7 @@ MonoBehaviour:
   musicBg: {fileID: 8300000, guid: 2f51e8f91d0832c46b2c73968b115869, type: 3}
   endMusic: {fileID: 8300000, guid: 64bf4a7fcc9556a4b86d5cdbe4e2020e, type: 3}
   pickUpSfx: {fileID: 8300000, guid: c6cb27f895f4599479135b033a268713, type: 3}
-  dropDownSfx: {fileID: 8300000, guid: cc73f361a4abf074baada0d2a913d50c, type: 3}
+  flipSfx: {fileID: 8300000, guid: cc73f361a4abf074baada0d2a913d50c, type: 3}
   combineItemsSfx: {fileID: 8300000, guid: b8b1b1a080a221c439ee86d7483d9d48, type: 3}
   jigsawSnapSfx: {fileID: 8300000, guid: c54b9e48540be3343af39740f830fbec, type: 3}
   jigsawRemoveSfx: {fileID: 8300000, guid: b4f73be435f6b5e4d85cf5b8c19469fe, type: 3}
@@ -640,7 +640,7 @@ PrefabInstance:
     - target: {fileID: 2360928989428640171, guid: 90adda4f698d50a47ae8223211e1d3dc, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8a069fbc64363c848b09cd60d6af204d, type: 2}
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 2360928989428640171, guid: 90adda4f698d50a47ae8223211e1d3dc, type: 3}
       propertyPath: m_fontStyle
       value: 1
@@ -648,7 +648,7 @@ PrefabInstance:
     - target: {fileID: 2360928989428640171, guid: 90adda4f698d50a47ae8223211e1d3dc, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -5861132381158748602, guid: 8a069fbc64363c848b09cd60d6af204d, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 2360928989428640171, guid: 90adda4f698d50a47ae8223211e1d3dc, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
@@ -707,11 +707,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4135908884051328004, guid: 90adda4f698d50a47ae8223211e1d3dc, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.49995
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4135908884051328004, guid: 90adda4f698d50a47ae8223211e1d3dc, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4148333559129920710, guid: 90adda4f698d50a47ae8223211e1d3dc, type: 3}
       propertyPath: m_AnchorMax.x
@@ -752,7 +752,7 @@ PrefabInstance:
     - target: {fileID: 5077694075712828104, guid: 90adda4f698d50a47ae8223211e1d3dc, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8a069fbc64363c848b09cd60d6af204d, type: 2}
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5077694075712828104, guid: 90adda4f698d50a47ae8223211e1d3dc, type: 3}
       propertyPath: m_fontStyle
       value: 1
@@ -760,7 +760,7 @@ PrefabInstance:
     - target: {fileID: 5077694075712828104, guid: 90adda4f698d50a47ae8223211e1d3dc, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -5861132381158748602, guid: 8a069fbc64363c848b09cd60d6af204d, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5077694075712828104, guid: 90adda4f698d50a47ae8223211e1d3dc, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
@@ -788,7 +788,7 @@ PrefabInstance:
     - target: {fileID: 5965556900248627320, guid: 90adda4f698d50a47ae8223211e1d3dc, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8a069fbc64363c848b09cd60d6af204d, type: 2}
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5965556900248627320, guid: 90adda4f698d50a47ae8223211e1d3dc, type: 3}
       propertyPath: m_fontStyle
       value: 1
@@ -796,7 +796,7 @@ PrefabInstance:
     - target: {fileID: 5965556900248627320, guid: 90adda4f698d50a47ae8223211e1d3dc, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -5861132381158748602, guid: 8a069fbc64363c848b09cd60d6af204d, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5965556900248627320, guid: 90adda4f698d50a47ae8223211e1d3dc, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
@@ -804,11 +804,11 @@ PrefabInstance:
     - target: {fileID: 6112611496167937401, guid: 90adda4f698d50a47ae8223211e1d3dc, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 8a069fbc64363c848b09cd60d6af204d, type: 2}
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 6112611496167937401, guid: 90adda4f698d50a47ae8223211e1d3dc, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -5861132381158748602, guid: 8a069fbc64363c848b09cd60d6af204d, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 6112611496167937401, guid: 90adda4f698d50a47ae8223211e1d3dc, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
       value: 1801810542
@@ -831,15 +831,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7697675545973730651, guid: 90adda4f698d50a47ae8223211e1d3dc, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.49995
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7697675545973730651, guid: 90adda4f698d50a47ae8223211e1d3dc, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7697675545973730651, guid: 90adda4f698d50a47ae8223211e1d3dc, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.49995
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8261325150097818202, guid: 90adda4f698d50a47ae8223211e1d3dc, type: 3}
       propertyPath: m_AnchorMax.y

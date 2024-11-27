@@ -45,10 +45,12 @@ public class PuzzlePiece : MonoBehaviour
         if (backSided)
         {
             animator.Play("jigsaw_flip_to_back");
+            AudioManager.Instance.PlaySFXClone(AudioManager.Instance.flipSfx);
         }
         else
         {
             animator.Play("jigsaw_flip_to_front");
+            AudioManager.Instance.PlaySFXClone(AudioManager.Instance.flipSfx);
         }
 
     }
