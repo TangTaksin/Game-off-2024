@@ -4,17 +4,19 @@ using System.Collections.Generic;
 public class PuzzlePiece : MonoBehaviour
 {
     bool isLift;
+    bool backSided;
 
     bool leftBound;
     Vector3 lastPos;
 
     Transform recent_parent_target;
     Transform snap_destination;
-    public Transform item_container;
+    public Transform item_container_front, item_container_back;
 
     List<PuzzlePiece> neighbour_pieces = new List<PuzzlePiece>();
 
     Rigidbody2D rigid2d;
+    Animator animator;
 
     public delegate void PieceEvent(PuzzlePiece piece);
     public PieceEvent OnNeighbourAdd, OnNeighbourRemove;
@@ -22,8 +24,33 @@ public class PuzzlePiece : MonoBehaviour
     private void Start()
     {
         rigid2d = GetComponent<Rigidbody2D>();
-        if (!item_container)
-            item_container = GameObject.Find("content").transform;
+        animator = GetComponent<Animator>();
+    }
+
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            FlipPiece();
+        }
+    }
+
+    void FlipPiece()
+    {
+        if (neighbour_pieces.Count > 0)
+            return;
+
+        backSided = !backSided;
+
+        if (backSided)
+        {
+            animator.Play("jigsaw_flip_to_back");
+        }
+        else
+        {
+            animator.Play("jigsaw_flip_to_front");
+        }
+
     }
 
     private void OnMouseDown()
@@ -103,7 +130,10 @@ public class PuzzlePiece : MonoBehaviour
 
     public void MoveToThisContainer(GameObject _item)
     {
-        _item.transform.SetParent(item_container);
+        if (backSided)
+            _item.transform.SetParent(item_container_back);
+        else
+            _item.transform.SetParent(item_container_front);
     }
 
     void GetNeighbour(PuzzlePiece piece)
