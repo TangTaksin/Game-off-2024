@@ -13,10 +13,7 @@ MonoBehaviour:
   m_Name: Combi
   m_EditorClassIdentifier: 
   combination_string:
-  - boxbox
-  - bamboostickstone
-  - bamboostickseastone
+  - windcloud
+  - cloudwind
   item_result:
-  - {fileID: 6384178306799800184, guid: fce7e2e173d508144a4943c77f256c31, type: 3}
-  - {fileID: 6384178306799800184, guid: fce7e2e173d508144a4943c77f256c31, type: 3}
-  - {fileID: 6384178306799800184, guid: fce7e2e173d508144a4943c77f256c31, type: 3}
+  - {fileID: 7579452860980054485, guid: 49dcf7b2c1ad4204dbcf9aa750dcdae7, type: 3}

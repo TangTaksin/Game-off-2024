@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b385c1b0bd61174dab44db5194c3d42, type: 3}
+  m_Name: MainScene
+  m_EditorClassIdentifier: 
+  combination_string:
+  - katanahiltseastone
+  - coralseashell
+  - smallstonebamboostick
+  - tridentheadbamboostick
+  item_result:
+  - {fileID: 6384178306799800184, guid: 3a146f3793d5812439e366d361d19e87, type: 3}
+  - {fileID: 6384178306799800184, guid: ebb3dacb54316e746a1f94a275acc7d0, type: 3}
+  - {fileID: 6384178306799800184, guid: e36a12dabf16bb749bc1a96acef8f687, type: 3}
+  - {fileID: 6384178306799800184, guid: d344ae8bff3d267489e32a3168313291, type: 3}

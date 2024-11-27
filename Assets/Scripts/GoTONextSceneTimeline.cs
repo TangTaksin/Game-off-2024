@@ -13,6 +13,7 @@ public class GoToNextSceneTimeline : MonoBehaviour
 
     private float spacebarHoldTime = 0f; // Tracks how long the spacebar is held
     private const float requiredHoldTime = 2f; // Time required to trigger the action
+    public Transition transition;
 
     // Start is called before the first frame update
     void Start()
@@ -84,12 +85,13 @@ public class GoToNextSceneTimeline : MonoBehaviour
     {
         if (director == playableDirector)
         {
-            if (nextSceneName == "BossRoom")
-            {
-                
-            }
             SceneManager.LoadScene(nextSceneName);
         }
+    }
+
+    public void ChangeScene(string nextSceneName)
+    {
+        StartCoroutine(ChangeSceneRoutine(nextSceneName));
     }
 
     private void OnDestroy()
@@ -98,5 +100,19 @@ public class GoToNextSceneTimeline : MonoBehaviour
         {
             playableDirector.stopped -= OnPlayableDirectorStopped;
         }
+    }
+
+    private IEnumerator ChangeSceneRoutine(string nextSceneName)
+    {
+        transition.PlayFadeIn();
+        yield return new WaitForSeconds(1f);
+
+        if (string.IsNullOrEmpty(nextSceneName))
+        {
+            Debug.LogError("Next scene name is null or empty. Cannot load scene.");
+            yield break;
+        }
+
+        SceneManager.LoadScene(nextSceneName);
     }
 }
