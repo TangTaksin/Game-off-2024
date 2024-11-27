@@ -24,6 +24,8 @@ public class Item : MonoBehaviour
 
     private void OnMouseDown()
     {
+        ItemNameDisplay.OnItemClickEvent?.Invoke(gameObject.name);
+
         // check current piece
         var col = Physics2D.OverlapCircle(transform.position, .1f, LayerMask.GetMask("PuzzlePiece"));
         if (col)
@@ -74,9 +76,9 @@ public class Item : MonoBehaviour
             var inter = detect_item[0].GetComponent<Item_Interact>();
             if (inter)
             {
-                inter.Interact(this);
+                var used = inter.Interact(this);
 
-                if (disable_on_combine)
+                if (disable_on_combine && used)
                 {
                     gameObject.SetActive(false);
                 }
