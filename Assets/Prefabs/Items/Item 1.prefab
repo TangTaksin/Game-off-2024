@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4728896736209870258}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.3005517, y: -2.4161077, z: -0.6000029}
+  m_LocalPosition: {x: 0.55, y: 0.55, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2025053934, guid: 08d51c100d17c1341a015d9c7144fcba, type: 3}
   m_Color: {r: 1, g: 0.96968985, b: 0.35283017, a: 1}
   m_FlipX: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: betterbox
-  disable_on_combine: 0
+  disable_on_combine: 1
 --- !u!114 &3390967711009556328
 MonoBehaviour:
   m_ObjectHideFlags: 0

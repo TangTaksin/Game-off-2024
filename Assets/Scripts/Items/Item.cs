@@ -1,4 +1,6 @@
 using UnityEngine;
+using System;
+using System.Collections; 
 
 public class Item : MonoBehaviour
 {
@@ -57,6 +59,8 @@ public class Item : MonoBehaviour
             return;
 
         var detect_item = Physics2D.OverlapCircleAll(transform.position, .25f, LayerMask.GetMask("Item"));
+        detect_item = Array.FindAll(detect_item, isNotSelf);
+
         var print_items = "";
         foreach (var i in detect_item)
         {
@@ -65,12 +69,17 @@ public class Item : MonoBehaviour
 
         print(print_items);
 
-        if (detect_item.Length > 1)
+        if (detect_item.Length > 0)
         {
             var inter = detect_item[0].GetComponent<Item_Interact>();
             if (inter)
             {
                 inter.Interact(this);
+
+                if (disable_on_combine)
+                {
+                    gameObject.SetActive(false);
+                }
             }
 
             var item = detect_item[0].GetComponent<Item>();
@@ -86,6 +95,11 @@ public class Item : MonoBehaviour
                 }
             }
         }
+    }
+
+    bool isNotSelf(Collider2D obj)
+    {
+        return obj.gameObject != gameObject;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

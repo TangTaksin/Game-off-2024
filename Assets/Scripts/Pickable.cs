@@ -6,6 +6,7 @@ public class Pickable : MonoBehaviour
     Rigidbody2D _rb;
 
     Vector3 mouseOffset;
+    float lastHeight;
 
     public bool moveViaRigidbody;
 
@@ -52,11 +53,12 @@ public class Pickable : MonoBehaviour
     {
         var mouseWorldPosition = _cam.ScreenToWorldPoint(Input.mousePosition);
         var movemet = mouseWorldPosition + mouseOffset;
+        var xy = new Vector3(movemet.x, movemet.y, transform.position.z);
 
         if (moveViaRigidbody && _rb)
-            _rb.MovePosition(movemet);
+            _rb.MovePosition(xy);
         else
-            transform.position = movemet;
+            transform.position = xy;
     }
 
     private void OnMouseUp()
