@@ -24,6 +24,10 @@ public class PuzzlePiece : MonoBehaviour
     {
         isLift = true;
         //snap_destination = null;
+        if (neighbour_pieces.Count > 0)
+        {
+            AudioManager.Instance.PlaySFXClone(AudioManager.Instance.jigsawRemoveSfx);
+        }
     }
 
     private void OnMouseUp()
@@ -32,6 +36,8 @@ public class PuzzlePiece : MonoBehaviour
         if (snap_destination != null)
         {
             transform.position = snap_destination.position;
+            AudioManager.Instance.PlaySFXClone(AudioManager.Instance.jigsawSnapSfx);
+
         }
 
         //snap_destination = null;
@@ -66,9 +72,10 @@ public class PuzzlePiece : MonoBehaviour
 
     public void RemoveNeighbour(PuzzlePiece piece)
     {
+        
         if (neighbour_pieces.Contains(piece))
         {
-            neighbour_pieces.Remove(piece);
+            neighbour_pieces.Remove(piece); 
         }
     }
 

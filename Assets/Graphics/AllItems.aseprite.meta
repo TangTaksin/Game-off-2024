@@ -396,27 +396,6 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: AllItems_12
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 37
-      y: 37
-      width: 14
-      height: 14
-    spriteID: ad45bc7ad3e1a494cb2eb69baea85a57
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
   - name: Chime stick
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -578,7 +557,7 @@ ScriptedImporter:
       cellRect:
         x: 0
         y: 16
-        width: 123
+        width: 163
         height: 95
       spriteId: 7009f29210f713f44a6f08620878f242
     linkedCells: []
@@ -635,4 +614,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 128, y: 128}
+  canvasSize: {x: 169, y: 128}

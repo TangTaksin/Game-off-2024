@@ -44,6 +44,7 @@ public class Pickable : MonoBehaviour
         var mouseWorldPosition = _cam.ScreenToWorldPoint(Input.mousePosition);
 
         mouseOffset = transform.position - mouseWorldPosition;
+        AudioManager.Instance.PlaySFXClone(AudioManager.Instance.pickUpSfx);
 
     }
 
