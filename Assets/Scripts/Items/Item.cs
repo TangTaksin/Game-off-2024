@@ -7,10 +7,18 @@ public class Item : MonoBehaviour
     public string itemName;
     public bool disable_on_combine;
 
+    float name_display_decay = .2f;
+    float decay_timer;
+    bool exited;
+
     PuzzlePiece current_parent_piece, new_parent_piece;
     bool left_current_piece;
 
     Vector3 last_pos;
+
+    public delegate void DisplayEvent(string item_name);
+    public static DisplayEvent OnItemEnterEvent, OnItemExitEvent;
+
 
     private void Awake()
     {
@@ -22,9 +30,35 @@ public class Item : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (exited)
+        {
+            decay_timer -= Time.deltaTime;
+            if (decay_timer <= 0)
+            { 
+                exited = false;
+                OnItemExitEvent?.Invoke(gameObject.name);
+            }
+                
+        }
+    }
+
+    private void OnMouseEnter()
+    {
+        OnItemEnterEvent?.Invoke(gameObject.name);
+        exited = false;
+    }
+
+    private void OnMouseExit()
+    {
+        exited = true;
+        decay_timer = name_display_decay;
+    }
+
     private void OnMouseDown()
     {
-        ItemNameDisplay.OnItemClickEvent?.Invoke(gameObject.name);
+        OnItemEnterEvent?.Invoke(gameObject.name);
 
         // check current piece
         var col = Physics2D.OverlapCircle(transform.position, .1f, LayerMask.GetMask("PuzzlePiece"));

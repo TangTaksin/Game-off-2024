@@ -3,12 +3,11 @@ using UnityEngine.Events;
 
 public class ItemSlotChecker : MonoBehaviour
 {
-    ItemSlot[] slots;
+    public ItemSlot[] slots;
     public UnityEvent OnAllFilled;
 
     private void Start()
     {
-        slots = GameObject.FindObjectsByType<ItemSlot>(FindObjectsInactive.Exclude, FindObjectsSortMode.InstanceID);
         ItemSlot.OnSlotFilled += SlotCheck;
     }
 
