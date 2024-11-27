@@ -58,6 +58,10 @@ public class PuzzlePiece : MonoBehaviour
         lastPos = transform.position;
         isLift = true;
         //snap_destination = null;
+        if (neighbour_pieces.Count > 0)
+        {
+            AudioManager.Instance.PlaySFXClone(AudioManager.Instance.jigsawRemoveSfx);
+        }
     }
 
     private void OnMouseUp()
@@ -66,10 +70,11 @@ public class PuzzlePiece : MonoBehaviour
         if (snap_destination != null)
         {
             transform.position = snap_destination.position;
+            AudioManager.Instance.PlaySFXClone(AudioManager.Instance.jigsawSnapSfx);
         }
 
         if (leftBound)
-        transform.position = lastPos;
+            transform.position = lastPos;
         //snap_destination = null;
     }
 
@@ -139,6 +144,6 @@ public class PuzzlePiece : MonoBehaviour
     void GetNeighbour(PuzzlePiece piece)
     {
         var other_neighbour = piece.neighbour_pieces;
-        
+
     }
 }
