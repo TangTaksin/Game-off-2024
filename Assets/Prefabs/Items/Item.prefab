@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3390967711009556328}
   - component: {fileID: 7659756422937549707}
   - component: {fileID: 8212534639207662497}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4728896736209870258}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.050484627, y: 0.03, z: 0}
+  m_LocalPosition: {x: 0.55000293, y: -0.55, z: -0.15000083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -103,6 +103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2103e6feb83feb4e873e991474228b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: box
+  disable_on_combine: 1
 --- !u!114 &3390967711009556328
 MonoBehaviour:
   m_ObjectHideFlags: 0

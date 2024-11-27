@@ -51,18 +51,25 @@ public class PuzzlePieceConponents : MonoBehaviour
             detected_comp = comp;
             detected_comp_obj = detected_comp.gameObject;
         }
+        else
+        {
+            detected_comp = null;
+            detected_comp_obj = null;
+        }
 
-        if (detected_comp && detected_comp.type != type)
-            CodeCheck();
+        CodeCheck();
     }
 
     void CodeCheck()
     {
-        if (detected_comp.connect_code == connect_code)
+        if ((detected_comp && detected_comp.type != type) &&
+            detected_comp.connect_code == connect_code)
         {
             code_matched = true;
             parent_piece.AddNeighbour(detected_comp.GetParent());
         }
+        else
+            code_matched = false;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
