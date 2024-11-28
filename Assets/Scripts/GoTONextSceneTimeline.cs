@@ -29,11 +29,24 @@ public class GoToNextSceneTimeline : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Check if the playable director is playing and has a valid duration
-        if (playableDirector != null && playableDirector.state == PlayState.Playing && playableDirector.duration > 0)
+        if (playableDirector != null && LoadingProgressBar != null)
         {
-            // Update the progress bar based on the current time and total duration
-            LoadingProgressBar.fillAmount = Mathf.Clamp01((float)(playableDirector.time / playableDirector.duration));
+            if (playableDirector.state == PlayState.Playing && playableDirector.duration > 0)
+            {
+                LoadingProgressBar.fillAmount = Mathf.Clamp01((float)(playableDirector.time / playableDirector.duration));
+            }
+        }
+        else
+        {
+            if (playableDirector == null)
+            {
+                Debug.LogWarning("PlayableDirector is not assigned.");
+            }
+
+            if (LoadingProgressBar == null)
+            {
+                Debug.LogWarning("LoadingProgressBar is not assigned.");
+            }
         }
     }
 
@@ -49,6 +62,11 @@ public class GoToNextSceneTimeline : MonoBehaviour
     public void ChangeScene(string nextSceneName)
     {
         StartCoroutine(ChangeSceneRoutine(nextSceneName));
+
+        if (nextSceneName == "EndScene")
+        {
+            AudioManager.Instance.PlayMusic(AudioManager.Instance.endMusic);
+        }
     }
 
     private void OnDestroy()

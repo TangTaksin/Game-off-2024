@@ -27,6 +27,7 @@ public class CombinationManager : MonoBehaviour
 
             if (compare)
             {
+                AudioManager.Instance.PlaySFXClone(AudioManager.Instance.combineItemsSfx);
                 if (item1.disable_on_combine)
                 {
                     item1.gameObject.SetActive(false);

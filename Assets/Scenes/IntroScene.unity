@@ -1053,7 +1053,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 185.57501}
-  m_SizeDelta: {x: 2026.4, y: 742.3}
+  m_SizeDelta: {x: 2408.81, y: 391}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1260268219
 MonoBehaviour:
@@ -1075,9 +1075,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et nunc
-    est. Nullam tempor faucibus auctor. Morbi laoreet quam lacus, sed fermentum sapien
-    aliquam non.
+  m_text: Roger's Ambition and the Start of His Journey
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a069fbc64363c848b09cd60d6af204d, type: 2}
   m_sharedMaterial: {fileID: -5861132381158748602, guid: 8a069fbc64363c848b09cd60d6af204d, type: 2}

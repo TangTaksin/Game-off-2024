@@ -61,7 +61,7 @@ public class SettingsManager : MonoBehaviour
     {
         musicSlider.value = PlayerPrefs.GetFloat("musicVolume", 0.55f); // Default value 0.75f
         ambientSlider.value = PlayerPrefs.GetFloat("ambientVolume", 0.55f);
-        sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume", 0.65f);
+        sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume", 0.75f);
         Debug.Log($"Music Slider: {musicSlider.value}, Loaded Volume: {PlayerPrefs.GetFloat("musicVolume", -1)}");
     }
 

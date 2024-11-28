@@ -25,8 +25,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private float maxPitch = 1.1f;
     [SerializeField] private float fadeOutDuration = 1.0f;
     [SerializeField] private float fadeInDuration = 1.0f;
-    
+
     private List<AudioSource> activeSfxClones = new List<AudioSource>(); // Track cloned SFX sources
+    private Coroutine fadeCoroutine; 
     public static AudioManager Instance { get; private set; }
 
     private void Awake()
@@ -68,7 +69,16 @@ public class AudioManager : MonoBehaviour
         PlayMusic(newClip);
     }
 
-    public void StopMusicFadeOut() => StartCoroutine(FadeAudio(musicSource, 0f, fadeOutDuration));
+    public void StopMusicFadeOut()
+    {
+        if (fadeCoroutine != null)
+        {
+            // If a fade is already in progress, stop it before starting a new one
+            StopCoroutine(fadeCoroutine);
+        }
+
+        fadeCoroutine = StartCoroutine(FadeAudio(musicSource, 0f, fadeOutDuration));
+    }
 
     // Ambient Control
     public void PlayAmbient(AudioClip clip)
