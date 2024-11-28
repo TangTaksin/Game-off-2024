@@ -8,7 +8,6 @@ public class ItemSlotChecker : MonoBehaviour
 
     private void Start()
     {
-        // slots = GameObject.FindObjectsByType<ItemSlot>(FindObjectsInactive.Exclude, FindObjectsSortMode.InstanceID);
         ItemSlot.OnSlotFilled += SlotCheck;
     }
 
