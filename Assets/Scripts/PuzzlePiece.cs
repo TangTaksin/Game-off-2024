@@ -110,9 +110,12 @@ public class PuzzlePiece : MonoBehaviour
 
     public void AddNeighbour(PuzzlePiece piece)
     {
-        if (!neighbour_pieces.Contains(piece))
+        if (!neighbour_pieces.Contains(piece) && piece != this)
         {
             neighbour_pieces.Add(piece);
+            piece.OnNeighbourAdd += AddNeighbour;
+            piece.OnNeighbourRemove += RemoveNeighbour;
+
             GetNeighbour(piece);
             OnNeighbourAdd?.Invoke(piece);
         }
@@ -122,9 +125,11 @@ public class PuzzlePiece : MonoBehaviour
     {
         if (neighbour_pieces.Contains(piece))
         {
+            piece.OnNeighbourAdd -= AddNeighbour;
+            piece.OnNeighbourRemove -= RemoveNeighbour;
             neighbour_pieces.Remove(piece);
 
-            OnNeighbourRemove?.Invoke(piece);
+            OnNeighbourRemove?.Invoke(this);
         }
     }
 
@@ -139,6 +144,12 @@ public class PuzzlePiece : MonoBehaviour
     void GetNeighbour(PuzzlePiece piece)
     {
         var other_neighbour = piece.neighbour_pieces;
-        
+        foreach (var _piece in other_neighbour)
+        {
+            if (!neighbour_pieces.Contains(_piece))
+            {
+                AddNeighbour(_piece);
+            }
+        }
     }
 }
