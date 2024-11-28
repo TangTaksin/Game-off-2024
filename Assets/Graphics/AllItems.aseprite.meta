@@ -669,6 +669,27 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
+  - name: Cross
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 53
+      y: 101
+      width: 14
+      height: 14
+    spriteID: 01214e0e1b1e27843bfb3c2679d2a6e0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
     guid: 867751347
@@ -684,7 +705,7 @@ ScriptedImporter:
         x: 0
         y: 16
         width: 163
-        height: 109
+        height: 112
       spriteId: 7009f29210f713f44a6f08620878f242
     linkedCells: []
     parentIndex: -1
