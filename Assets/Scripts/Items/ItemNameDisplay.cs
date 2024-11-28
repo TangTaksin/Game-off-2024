@@ -29,7 +29,7 @@ public class ItemNameDisplay : MonoBehaviour
     private void Update()
     {
         if (textUI.gameObject.activeSelf)
-            transform.position = Input.mousePosition;
+            transform.position = Vector3.Lerp(transform.position, Input.mousePosition, Time.deltaTime * 20f);
 
     }
 

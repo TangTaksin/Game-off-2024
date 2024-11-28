@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables; // Required to access the PlayableDirector
 using UnityEngine.SceneManagement; // Required to change scenes
@@ -9,10 +8,8 @@ public class GoToNextSceneTimeline : MonoBehaviour
 {
     public PlayableDirector playableDirector; // Reference to the PlayableDirector component
     public string nextSceneName; // Name of the next scene to load
-    public Image holdProgressBar; // Reference to the UI Image for progress bar
+    public Image LoadingProgressBar; // Reference to the UI Image for progress bar
 
-    private float spacebarHoldTime = 0f; // Tracks how long the spacebar is held
-    private const float requiredHoldTime = 2f; // Time required to trigger the action
     public Transition transition;
 
     // Start is called before the first frame update
@@ -27,57 +24,16 @@ public class GoToNextSceneTimeline : MonoBehaviour
         {
             playableDirector.stopped += OnPlayableDirectorStopped;
         }
-
-        // Ensure the progress bar starts empty
-        if (holdProgressBar != null)
-        {
-            holdProgressBar.fillAmount = 0f;
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Check if the spacebar is being held down
-        if (Input.GetKey(KeyCode.Space))
+        // Check if the playable director is playing and has a valid duration
+        if (playableDirector != null && playableDirector.state == PlayState.Playing && playableDirector.duration > 0)
         {
-            // Increment the hold time
-            spacebarHoldTime += Time.deltaTime;
-
-            // Update the progress bar fill amount
-            if (holdProgressBar != null)
-            {
-                holdProgressBar.fillAmount = Mathf.Clamp01(spacebarHoldTime / requiredHoldTime);
-            }
-
-            // If the spacebar has been held for the required time, stop the timeline
-            if (spacebarHoldTime >= requiredHoldTime)
-            {
-                if (playableDirector != null && playableDirector.state == PlayState.Playing)
-                {
-                    playableDirector.Stop();
-                    OnPlayableDirectorStopped(playableDirector);
-                }
-
-                // Reset the hold time
-                spacebarHoldTime = 0f;
-
-                // Clear the progress bar
-                if (holdProgressBar != null)
-                {
-                    holdProgressBar.fillAmount = 0f;
-                }
-            }
-        }
-        else
-        {
-            // Reset the hold time and progress bar if the key is released
-            spacebarHoldTime = 0f;
-
-            if (holdProgressBar != null)
-            {
-                holdProgressBar.fillAmount = 0f;
-            }
+            // Update the progress bar based on the current time and total duration
+            LoadingProgressBar.fillAmount = Mathf.Clamp01((float)(playableDirector.time / playableDirector.duration));
         }
     }
 
@@ -85,7 +41,8 @@ public class GoToNextSceneTimeline : MonoBehaviour
     {
         if (director == playableDirector)
         {
-            SceneManager.LoadScene(nextSceneName);
+            // Start the scene change process when the timeline stops
+            StartCoroutine(ChangeSceneRoutine(nextSceneName));
         }
     }
 
@@ -104,8 +61,9 @@ public class GoToNextSceneTimeline : MonoBehaviour
 
     private IEnumerator ChangeSceneRoutine(string nextSceneName)
     {
+        // Play the fade-in transition before switching scenes
         transition.PlayFadeIn();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1f); // Adjust for the duration of the transition
 
         if (string.IsNullOrEmpty(nextSceneName))
         {
@@ -113,6 +71,7 @@ public class GoToNextSceneTimeline : MonoBehaviour
             yield break;
         }
 
+        // Load the next scene
         SceneManager.LoadScene(nextSceneName);
     }
 }
